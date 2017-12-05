@@ -4,13 +4,21 @@ export default function({ types: t }) {
       CallExpression(path, state) {
         let callee = path.get('callee');
         let object = callee.node.object;
+
         if (object && object.name === 'console') {
           let property = callee.node.property;
+
           if (property && property.name === 'log') {
-            path.remove();
+            let parent = path.parentPath;
+
+            if (parent.isConditionalExpression()) {
+              path.replaceWithSourceString('void(0)');
+            } else {
+              path.remove();
+            }
           }
         }
       }
     }
   };
-};
+}

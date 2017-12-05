@@ -1,55 +1,54 @@
 "use strict";
 
+// 1
 function foo() {
-  console.log("foo");
   blah();
 }
-
+// 2
 function foo() {
-  true && console.log("foo");
+  true;
   blah();
 }
-
-true && console.log("foo");
+// 3
+true;
 blah();
+// 4
 
-console.log("foo");
 blah();
-
-if (blah) console.log(blah);
-for (;;) {
-  console.log(blah);
-}for (var blah in []) {
-  console.log(blah);
-}var _arr = [];
+// 5
+if (blah) {}
+for (;;) {}
+for (var blah in []) {}
+var _arr = [];
 for (var _i = 0; _i < _arr.length; _i++) {
-  var blah = _arr[_i];console.log(blah);
-}while (blah) {
-  console.log(blah);
-}do {
-  console.log(blah);
-} while (blah);
-
+  var blah = _arr[_i];
+}
+// 6
+while (blah) {}
+do {} while (blah);
+// 7
 var a = console.log;
 a();
+// 8
 var b = console.log.bind(console);
 b("asdf");
-
-var x = console.log ? console.log('log') : foo();
+// 9
+var x = console.log ? void 0 : foo();
+// 10
 function foo() {
   if (console.error) {
     console.error("Errored");
   }
 }
-
+// 11
 console.log.call(console, "foo");
 console.log.apply(null, {});
-
+// 12
 function foo(console) {
   console.foo("hi");
   var bar = console.foo.bind(console);
 }
-
+// 13
 function bar(a) {
   var console = a.console;
 
@@ -60,23 +59,20 @@ function bar(a) {
     return;
   }
 }
-
+// 14
 function foo() {
-  console.foo = function foo() {
-    console.log("foo");
-  };
+  console.foo = function foo() {};
   console.error = myConsoleError;
   console.foo();
   console.error("asdf");
 }
-
+// 15
 function foo() {
-  console.log("foo");
   console.error("bar");
   blah();
   console.info("blah");
 }
-
+// 16
 function foo() {
   var a = console.log;
   a();
