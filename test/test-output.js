@@ -1,5 +1,8 @@
 "use strict";
 
+// Test cases taken from
+// https://github.com/babel/minify/blob/master/packages/babel-plugin-transform-remove-console/__tests__/remove-console-test.js
+
 // 1
 function foo() {
   blah();
@@ -21,13 +24,13 @@ for (;;) {}
 for (var blah in []) {}
 var _arr = [];
 for (var _i = 0; _i < _arr.length; _i++) {
-  var blah = _arr[_i];
+  var blah = function blah() {};
 }
 // 6
 while (blah) {}
 do {} while (blah);
 // 7
-var a = console.log;
+var a = function a() {};
 a();
 // 8
 var b = console.log.bind(console);
@@ -50,7 +53,7 @@ function foo(console) {
 }
 // 13
 function bar(a) {
-  var console = a.console;
+  var console = function console() {};
 
   a.b = function (console) {
     return console.bar("bar");
@@ -74,7 +77,7 @@ function foo() {
 }
 // 16
 function foo() {
-  var a = console.log;
+  var a = function a() {};
   a();
   var b = console.error.bind(console);
   b("asdf");

@@ -1,6 +1,13 @@
 export default function({ types: t }) {
   return {
     visitor: {
+      MemberExpression(path) {
+        let parent = path.parentPath;
+
+        if (parent.isVariableDeclarator()) {
+          path.replaceWithSourceString('function(){}');
+        }
+      },
       CallExpression(path, state) {
         let callee = path.get('callee');
         let object = callee.node.object;
