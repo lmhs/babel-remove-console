@@ -1,0 +1,26 @@
+{
+  "name": "babel-remove-console",
+  "version": "1.0.0",
+  "description": "Babel plugin for removing Console statements",
+  "main": "index.js",
+  "scripts": {
+    "compile": "babel --no-babelrc src/index.js --out-file dist/index.js --presets es2015",
+    "test": "babel test/test.js --out-file test/test-output.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lmhs/babel-remove-console.git"
+  },
+  "author": "Maksim Labovich",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lmhs/babel-remove-console/issues"
+  },
+  "homepage": "https://github.com/lmhs/babel-remove-console#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1"
+  }
+}
