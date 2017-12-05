@@ -8,7 +8,7 @@ export default function({ types: t }) {
           path.replaceWithSourceString('function(){}');
         }
       },
-      CallExpression(path, state) {
+      CallExpression(path) {
         let callee = path.get('callee');
         let object = callee.node.object;
 
