@@ -1,3 +1,6 @@
+// Test cases taken from
+// https://github.com/babel/minify/blob/master/packages/babel-plugin-transform-remove-console/__tests__/remove-console-test.js
+
 // 1
 function foo() {
   console.log("foo");
